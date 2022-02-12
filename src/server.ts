@@ -1,8 +1,14 @@
 /* eslint-disable prettier/prettier */
-import express from "express";
+import express, { json } from "express";
+import { db } from "./database/db";
+import { router } from "./router";
 
 const app = express();
 
-app.listen(3000, () => {
+app.use(json());
+app.use(router);
+
+app.listen(3000, async () => {
+   await db.sync();
  console.log(`Api ${process.env.PROJECT_NAME}!`);
 });
