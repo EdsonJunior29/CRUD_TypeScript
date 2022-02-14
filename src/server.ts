@@ -10,5 +10,4 @@ app.use(router);
 
 app.listen(3000, async () => {
    await db.sync();
- console.log(`Api ${process.env.PROJECT_NAME}!`);
 });
